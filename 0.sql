@@ -11,11 +11,60 @@
 --     [name] AS NameOfObject,[object_id],[type_desc]
 -- FROM
 --     sys.objects
-SELECT
-    11 * 12 AS [My Answer]
-SELECT
-    [object_id] AS ObjectID,
-    [name] AS ObjectName,
-    [column_id] AS ColumnID
-FROM
-    sys.columns
+-- SELECT
+--     11 * 12 AS [My Answer]
+-- SELECT
+--     [object_id] AS ObjectID,
+--     [name] AS ObjectName,
+--     [column_id] AS ColumnID
+-- FROM
+--     sys.columns
+-- SELECT
+--     *
+-- FROM
+--     sys.objects
+-- WHERE
+--     object_id >= 4
+--     AND object_id <= 10
+-- SELECT
+--     *
+-- FROM
+--     sys.objects
+-- WHERE
+--     [name] LIKE 'sysr%'
+-- SELECT
+--     *
+-- FROM
+--     sys.objects
+-- WHERE
+--     [name] NOT LIKE 'sysr%'
+-- SELECT
+--     *
+-- FROM
+--     sys.objects
+-- WHERE
+--     [name] LIKE '%A%'
+-- SELECT
+--     *
+-- FROM
+--     sys.objects
+-- WHERE
+--     create_date < '2019-01-01' -- >
+-- <
+-- =
+-- <>
+-- >=
+-- <=
+-- AND
+-- OR
+-- NOT
+-- 'string'
+-- LIKE
+-- '&'
+-- '2019-01-01'
+
+SELECT schema_id,count(schema_id) as NumbeofRows from sys.objects GROUP BY schema_id
+
+SELECT principal_id, count(*) as NumofRows from sys.objects GROUP BY principal_id
+
+SELECT TOP 10 schema_id FROM sys.objects
