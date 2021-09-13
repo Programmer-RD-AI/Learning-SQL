@@ -68,12 +68,59 @@
 --     (-2.77, '2025-05-12', 11),
 --     (-946.12, '2025-06-21', 11),
 --     (-920.27, '2025-01-04', 12);
-SELECT
-    E.EmployeeFirstName,
-    E.EmployeeGovernmentID,
-    E.EmployeeNumber,
-    Amount,
-    DateOfTransaction
-FROM
-    [tblEmployee] AS E
-    INNER JOIN [tbltransaction] AS T ON E.EmployeeNumber = T.EmployeeNumber
+-- SELECT
+--     *
+-- FROM
+--     [tblEmployee] AS E
+--     LEFT JOIN [tbltransaction] AS T ON E.EmployeeNumber = T.EmployeeNumber
+-- WHERE Amount is null
+-- SELECT
+--     *
+-- FROM
+--     tbltransaction AS T
+--     JOIN tblEmployee AS E ON T.EmployeeNumber = E.EmployeeNumber
+-- where T.EmployeeNumber IS NULL
+-- SELECT
+--     *
+-- FROM
+--     tblEmployee AS E1
+--     LEFT JOIN tblEmployee as E2 ON E1.Manager = E2.EmployeeNumber
+CREATE TABLE tblStampNames (
+    [StampID] tinyint NOT NULL,
+    [StampName] varchar(17) NOT NULL,
+    [StampCountry] varchar(7) NOT NULL,
+    [StampYear] smallint NOT NULL
+);
+
+INSERT INTO
+    tblStampNames (
+        [StampID],
+        [StampName],
+        [StampCountry],
+        [StampYear]
+    )
+VALUES
+    (1, 'Inverted Alison', 'Italy', 1917),
+    (2, 'John Adams', 'USA', 1867),
+    (3, 'Stars and Stripes', 'USA', 1882),
+    (5, 'Queen Victoria', 'UK', 1937),
+    (6, 'Rio de Janeiro', 'Brazil', 1898),
+    (7, 'Kiev Standard', 'Ukraine', 1876),
+    (8, 'William IV', 'UK', 1936),
+    (9, 'Yellow Tree', 'Italy', 1865);
+
+CREATE TABLE tblStampPurchases (
+    [StampID] tinyint NOT NULL,
+    [PurchaseDate] date NOT NULL,
+    [PurchasePrice] int NOT NULL
+);
+
+INSERT INTO
+    tblStampPurchases([StampID], [PurchaseDate], [PurchasePrice])
+VALUES
+    (2, '2001-02-09', 47500),
+    (3, '1988-04-26', 46600),
+    (4, '1994-01-04', 10700),
+    (5, '1982-03-06', 15400),
+    (6, '1980-11-02', 10800),
+    (6, '1986-03-10', 10300);
