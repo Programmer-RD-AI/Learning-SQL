@@ -100,12 +100,43 @@
 --     sys.columns
 -- GROUP BY
 --     object_id
-SELECT
-    name,
-    count(*) as NumberofRows
-FROM
-    sys.objects
-GROUP BY
-    name 
+-- SELECT
+--     name,
+--     count(*) as NumberofRows
+-- FROM
+--     sys.objects
+-- WHERE name LIKE 'f%'
+-- GROUP BY
+--     name 
+-- HAVING COUNT(*) > 0
+-- SELECT
+--     name
+-- FROM
+--     sys.objects
+-- ORDER BY name ASC
+-- SELECT
+--     name
+-- FROM
+--     sys.objects
+-- ORDER BY name DESC
+-- SELECT
+--     object_id AS ObjectID,
+--     COUNT(*) as NumberOfRows
+-- FROM
+--     sys.columns
+-- GROUP BY
+--     object_id
+-- HAVING
+--     COUNT(*) <= 10
 
-HAVING COUNT(*) > 0
+-- SELECT
+--     object_id AS ObjectID,
+--     COUNT(*) as NumberOfRows
+-- FROM
+--     sys.columns
+-- GROUP BY
+--     object_id
+-- HAVING
+--     COUNT(*) <= 10
+-- ORDER BY
+--     NumberOfRows DESC, ObjectID ASC
