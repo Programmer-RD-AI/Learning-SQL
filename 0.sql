@@ -62,9 +62,50 @@
 -- LIKE
 -- '&'
 -- '2019-01-01'
+-- SELECT schema_id,count(schema_id) as NumbeofRows from sys.objects GROUP BY schema_id
+-- SELECT principal_id, count(*) as NumofRows from sys.objects GROUP BY principal_id
+-- SELECT
+-- TOP 10 schema_id
+-- FROM
+-- sys.objects
+-- SELECT
+--     object_id AS ObjectID,
+--     name as ObjectName,
+--     column_id AS ColumnID
+-- FROM
+--     sys.columns
+-- WHERE
+--     column_id = 1
+-- SELECT
+--     TOP 10 object_id AS ObjectID,
+--     name as ObjectName,
+--     column_id AS ColumnID
+-- FROM
+--     sys.columns
+-- WHERE
+--     column_id <= 10
+--     AND column_id >= 1
+-- SELECT
+--     object_id AS ObjectID,
+--     name as ObjectName,
+--     column_id AS ColumnID
+-- FROM
+--     sys.columns
+-- WHERE
+--     [name] LIKE 'n%'
+-- SELECT
+--     object_id,
+--     count(object_id) AS ValueCount
+-- FROM
+--     sys.columns
+-- GROUP BY
+--     object_id
+SELECT
+    name,
+    count(*) as NumberofRows
+FROM
+    sys.objects
+GROUP BY
+    name 
 
-SELECT schema_id,count(schema_id) as NumbeofRows from sys.objects GROUP BY schema_id
-
-SELECT principal_id, count(*) as NumofRows from sys.objects GROUP BY principal_id
-
-SELECT TOP 10 schema_id FROM sys.objects
+HAVING COUNT(*) > 0
